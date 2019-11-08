@@ -3,9 +3,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var bodyParser = require('body-parser');
 
 var indexRouter = require('./routes/index');
 var versionRouter = require('./routes/version');
+var getmenuRouter = require('./routes/getmenu');
+var purchaseRouter = require('./routes/purchase');
 var logsRouter = require('./routes/logs');
 
 const log = require('simple-node-logger').createSimpleLogger('logs/events.log');
@@ -22,9 +25,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use('/', indexRouter);
 app.use('/version', versionRouter);
 app.use('/logs', logsRouter);
+app.use('/getmenu', getmenuRouter);
+app.use('/purchase', purchaseRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
