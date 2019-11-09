@@ -32,7 +32,7 @@ app.use('/', indexRouter);
 app.use('/version', versionRouter);
 app.use('/logs', logsRouter);
 app.use('/getmenu', getmenuRouter);
-app.use('/purchase', purchaseRouter);
+app.use('/purchase/^.*hotdog.*$/[0-9][0-9][0-9]', purchaseRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

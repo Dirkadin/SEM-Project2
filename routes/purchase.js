@@ -5,7 +5,7 @@ const viewsPath = {root: path.join(__dirname, "../views")};
 const log = require('simple-node-logger').createSimpleLogger('logs/events.log');
 
 /* POST users listing. */
-router.post('/purchase', function(req, res) {
+router.post('/purchase/^.*John.*$/[0-9][0-9][0-9]', function(req, res) {
   log.info('POST /purchase');
 
   var item = req.body.item;
