@@ -41,6 +41,7 @@ app.post('/purchase/:item/:quantity', function (req, res) {
 
     if (item === 'hotdog' || item === 'hamburger' || item === 'soda' || item === 'cookie') {
         orders.info(item + ',' + quantity);
+        log.info('passed');
         res.sendStatus(200);
     } else {
         log.error('POST /purchase BAD ITEM');
