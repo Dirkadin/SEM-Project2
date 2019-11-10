@@ -8,7 +8,6 @@ var bodyParser = require('body-parser');
 var indexRouter = require('./routes/index');
 var versionRouter = require('./routes/version');
 var getmenuRouter = require('./routes/getmenu');
-var purchaseRouter = require('./routes/purchase');
 var logsRouter = require('./routes/logs');
 
 const log = require('simple-node-logger').createSimpleLogger('logs/events.log');
@@ -32,7 +31,12 @@ app.use('/', indexRouter);
 app.use('/version', versionRouter);
 app.use('/logs', logsRouter);
 app.use('/getmenu', getmenuRouter);
-app.use('/purchase/^.*hotdog.*$/[0-9][0-9][0-9]', purchaseRouter);
+
+app.post('/purchase/:item/:quantity', function (req, res) {
+    console.log(req.params.item, req.params.quantity);
+    log.info('POST');
+    res.sendStatus(200);
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
