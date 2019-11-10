@@ -7,7 +7,7 @@ const log = require('simple-node-logger').createSimpleLogger('logs/events.log');
 /* GET users listing. */
 router.get('/', function(req, res, next) {
     log.info('GET /logs');
-    res.sendFile("events.log", logsPath);
+    res.sendFile("/ordering-service/events.log", logsPath);
 });
 
 module.exports = router;
