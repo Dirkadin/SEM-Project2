@@ -36,12 +36,11 @@ app.use('/getmenu', getmenuRouter);
 app.post('/purchase/:item/:quantity', function (req, res) {
     console.log(req.params.item, req.params.quantity);
     log.info('POST');
-    var item = req.params.item;
-    var quantity = req.params.quantity;
+    var item = req.params.item.toLowerCase();
+    var quantity = req.params.quantity.toLowerCase();
 
     if (item === 'hotdog' || item === 'hamburger' || item === 'soda' || item === 'cookie') {
         orders.info(item + ',' + quantity);
-        log.info('passed');
         res.sendStatus(200);
     } else {
         log.error('POST /purchase BAD ITEM');
