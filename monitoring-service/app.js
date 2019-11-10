@@ -24,11 +24,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/getTotalRouter', getTotalRouter);
-app.use('/getTopSellerRouter', getTopSellerRouter);
-app.use('/getRequestCountRouter', getRequestCountRouter);
-app.use('/getLastRequestTimeRouter', getLastRequestTimeRouter);
-app.use('/getLastRequestStatusRouter', getLastRequestStatusRouter);
+app.use('/gettotal', getTotalRouter);
+app.use('/gettopseller', getTopSellerRouter);
+app.use('/getrequestcount', getRequestCountRouter);
+app.use('/getlastrequesttime', getLastRequestTimeRouter);
+app.use('/getlastrequeststatus', getLastRequestStatusRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
