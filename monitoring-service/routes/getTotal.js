@@ -3,7 +3,8 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('test', { title: 'Express' });
+    //reports back the total amount of earnings seen thus far.
+    res.render('test', { title: 'Get Total', message:'' });
 });
 
 module.exports = router;

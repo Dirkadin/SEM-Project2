@@ -3,7 +3,8 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('test', { title: 'Express' });
+    //reports back the total number of all requests
+    res.render('test', { title: 'Get Request Count', message:'' });
 });
 
 module.exports = router;

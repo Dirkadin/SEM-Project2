@@ -3,7 +3,8 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('test', { title: 'Express' });
+    //reports back the item that has been purchases the greatest number of times
+    res.render('test', { title: 'Get Top Seller', message:'' });
 });
 
 module.exports = router;
