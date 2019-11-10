@@ -9,6 +9,5 @@ WORKDIR /app
 
 RUN npm install
 
-CMD ["touch", "logs/ordering-service/events.log", "&"]
 CMD ["npm", "start"]
 
