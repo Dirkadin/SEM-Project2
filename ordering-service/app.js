@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var indexRouter = require('./routes/index');
 var versionRouter = require('./routes/version');
 var getmenuRouter = require('./routes/getmenu');
-var logsRouter = require('./routes/logs');
+//var logsRouter = require('./routes/logs');
 
 const log = require('simple-node-logger').createSimpleLogger('logs/events.log');
 
@@ -29,12 +29,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/', indexRouter);
 app.use('/version', versionRouter);
-app.use('/logs', logsRouter);
+//app.use('/logs', logsRouter);
 app.use('/getmenu', getmenuRouter);
 
 app.post('/purchase/:item/:quantity', function (req, res) {
     console.log(req.params.item, req.params.quantity);
     log.info('POST');
+    var item = req.params.item;
+    var quantity = req.params.quantity;
+
     res.sendStatus(200);
 });
 
